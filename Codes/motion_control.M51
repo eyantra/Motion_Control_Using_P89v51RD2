@@ -1,0 +1,200 @@
+BL51 BANKED LINKER/LOCATER V6.05                                                        09/07/2010  19:50:34  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.05, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE main.obj TO motion_control RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  motion_control (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0038H     UNIT         ?PR?MAIN?MAIN
+            CODE    0838H     0026H     UNIT         ?PR?_DELAY_MS?MAIN
+            CODE    085EH     000CH     UNIT         ?C_C51STARTUP
+            CODE    086AH     0009H     UNIT         ?PR?FORWARD?MAIN
+            CODE    0873H     0009H     UNIT         ?PR?BACKWARD?MAIN
+            CODE    087CH     0009H     UNIT         ?PR?LEFT?MAIN
+            CODE    0885H     0009H     UNIT         ?PR?RIGHT?MAIN
+            CODE    088EH     0009H     UNIT         ?PR?STOP?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   motion_control (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?FORWARD?MAIN
+  +--> ?PR?_DELAY_MS?MAIN
+  +--> ?PR?STOP?MAIN
+  +--> ?PR?BACKWARD?MAIN
+  +--> ?PR?LEFT?MAIN
+  +--> ?PR?RIGHT?MAIN
+
+?PR?_DELAY_MS?MAIN
+  +--> ?PR?STOP?MAIN
+
+
+
+BL51 BANKED LINKER/LOCATER V6.05                                                      09/07/2010  19:50:34  PAGE 2
+
+
+SYMBOL TABLE OF MODULE:  motion_control (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  B:0090H.3       PUBLIC        left_velocity
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IEN0
+  B:0090H.0       PUBLIC        LB
+  D:00E8H         PUBLIC        IEN1
+  B:0090H.1       PUBLIC        LF
+  B:00B0H.4       PUBLIC        RB
+  B:0090H.2       PUBLIC        RF
+  C:0885H         PUBLIC        right
+  D:00D8H         PUBLIC        CCON
+  B:00A0H.7       PUBLIC        buzzer
+  C:0800H         PUBLIC        main
+  C:087CH         PUBLIC        left
+  D:00C0H         PUBLIC        WDTC
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0873H         PUBLIC        backward
+  C:088EH         PUBLIC        stop
+  D:00B8H         PUBLIC        IP0
+  D:00F8H         PUBLIC        IP1
+  C:083EH         PUBLIC        _delay_ms
+  D:00C8H         PUBLIC        T2CON
+  B:0090H.4       PUBLIC        right_velocity
+  C:086AH         PUBLIC        forward
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          L?0018
+  -------         ENDPROC       L?0018
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:083EH         LINE#         62
+  C:083EH         LINE#         63
+  C:083EH         LINE#         66
+  C:0848H         LINE#         67
+  C:085DH         LINE#         68
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          FORWARD
+  C:086AH         LINE#         81
+  C:086AH         LINE#         82
+  C:086AH         LINE#         83
+  C:086CH         LINE#         84
+  C:086EH         LINE#         85
+  C:0870H         LINE#         86
+  C:0872H         LINE#         87
+BL51 BANKED LINKER/LOCATER V6.05                                                      09/07/2010  19:50:34  PAGE 3
+
+
+  -------         ENDPROC       FORWARD
+  -------         PROC          BACKWARD
+  C:0873H         LINE#         89
+  C:0873H         LINE#         90
+  C:0873H         LINE#         91
+  C:0875H         LINE#         92
+  C:0877H         LINE#         93
+  C:0879H         LINE#         94
+  C:087BH         LINE#         95
+  -------         ENDPROC       BACKWARD
+  -------         PROC          LEFT
+  C:087CH         LINE#         98
+  C:087CH         LINE#         99
+  C:087CH         LINE#         100
+  C:087EH         LINE#         101
+  C:0880H         LINE#         102
+  C:0882H         LINE#         103
+  C:0884H         LINE#         104
+  -------         ENDPROC       LEFT
+  -------         PROC          RIGHT
+  C:0885H         LINE#         106
+  C:0885H         LINE#         107
+  C:0885H         LINE#         108
+  C:0887H         LINE#         109
+  C:0889H         LINE#         110
+  C:088BH         LINE#         111
+  C:088DH         LINE#         112
+  -------         ENDPROC       RIGHT
+  -------         PROC          STOP
+  C:088EH         LINE#         114
+  C:088EH         LINE#         115
+  C:088EH         LINE#         116
+  C:0890H         LINE#         117
+  C:0892H         LINE#         118
+  C:0894H         LINE#         119
+  C:0896H         LINE#         120
+  -------         ENDPROC       STOP
+  -------         PROC          MAIN
+  C:0800H         LINE#         124
+  C:0800H         LINE#         126
+  C:0800H         LINE#         128
+  C:0802H         LINE#         129
+  C:0804H         LINE#         131
+  C:0806H         LINE#         134
+  C:0806H         LINE#         135
+  C:0806H         LINE#         136
+  C:0809H         LINE#         137
+  C:080BH         LINE#         138
+  C:0812H         LINE#         140
+  C:0814H         LINE#         141
+  C:0817H         LINE#         142
+  C:081AH         LINE#         144
+  C:081DH         LINE#         145
+  C:081DH         LINE#         147
+  C:081DH         LINE#         148
+  C:0820H         LINE#         150
+  C:0823H         LINE#         151
+BL51 BANKED LINKER/LOCATER V6.05                                                      09/07/2010  19:50:34  PAGE 4
+
+
+  C:0823H         LINE#         153
+  C:0823H         LINE#         154
+  C:0826H         LINE#         156
+  C:0829H         LINE#         157
+  C:082CH         LINE#         159
+  C:082FH         LINE#         160
+  C:0836H         LINE#         161
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 008BH BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=154
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
